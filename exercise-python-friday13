@@ -1,0 +1,36 @@
+import cs50
+import datetime
+
+def isfriday13(mes, anio):
+    # Crear la fecha 13 de ese mes y año
+    fecha = datetime.date(anio, mes, 13)
+    # Verificar si el día es viernes (weekday() == 4)
+    if fecha.weekday() == 4:
+        return True
+    else:
+        return False
+
+
+while True:
+    # Pedir el año
+    year = int(input("Ingrese el año deseado: "))
+
+    # Validar el año
+    if year > 0:
+        break
+
+while True:
+    # Pedir el mes
+    month = int(input(f"Ingrese el número del mes del año {year}: "))
+
+    # Validar el mes (debe estar entre 1 y 12)
+    if month <= 0 or month > 12:
+        print("Ingrese un mes válido, intente de nuevo uwu")
+    else:
+        break
+
+# Llamar a la función isfriday13 con el mes y año proporcionados
+if isfriday13(month, year):
+    print(f"En el año {year}, en el mes {month}, sí existe un viernes 13.")
+else:
+    print(f"En el año {year}, en el mes {month}, no existe un viernes 13.")
